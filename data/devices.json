@@ -130,5 +130,12 @@
     "mac": "00:01:2E:70:36:87",
     "floor": "etage1",
     "room": "Séjour"
+  },
+  {
+    "id": "alarme",
+    "name": "Alarme Verisure",
+    "type": "verisure",
+    "floor": "etage1",
+    "room": "Escalier"
   }
 ]

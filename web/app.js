@@ -282,7 +282,12 @@ function renderFloorTabs() {
 function roomCenter(floor, name) {
   const r = floor.rooms.find((r) => r.name === name);
   if (!r) return [floor.width / 2, floor.height / 2];
-  return r.label || [r.x + r.w / 2, r.y + r.h / 2];
+  if (r.label) return r.label;
+  // escalier : pièce dessinée en ellipse (cx, cy, rx, ry), sans rectangle
+  const s = r.stairs;
+  const [x, y] = s ? [s.cx + s.rx / 2, s.cy - s.ry / 2] : [r.x + r.w / 2, r.y + r.h / 2];
+  if (!Number.isFinite(x) || !Number.isFinite(y)) return [floor.width / 2, floor.height / 2];
+  return [Math.min(Math.max(x, 40), floor.width - 40), Math.min(Math.max(y, 40), floor.height - 40)];
 }
 
 function devicePos(d, floor, idx) {
