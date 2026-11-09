@@ -1,0 +1,115 @@
+[
+  {
+    "id": "soiree_tv",
+    "name": "Soirée TV",
+    "icon": "tv",
+    "actions": [
+      {
+        "type": "device",
+        "device": "prise_tv",
+        "action": "on"
+      },
+      {
+        "type": "device",
+        "device": "ampoule_salon",
+        "action": "on"
+      },
+      {
+        "type": "device",
+        "device": "ampoule_salon",
+        "action": "brightness",
+        "params": {
+          "value": 30
+        }
+      },
+      {
+        "type": "device",
+        "device": "ampoule_cuisine",
+        "action": "off"
+      }
+    ]
+  },
+  {
+    "id": "tout_eteindre",
+    "name": "Tout éteindre",
+    "icon": "power",
+    "actions": [
+      {
+        "type": "device",
+        "device": "prise_tv",
+        "action": "off"
+      },
+      {
+        "type": "device",
+        "device": "ampoule_salon",
+        "action": "off"
+      },
+      {
+        "type": "device",
+        "device": "ampoule_cuisine",
+        "action": "off"
+      },
+      {
+        "type": "device",
+        "device": "clim_salon",
+        "action": "off"
+      }
+    ]
+  },
+  {
+    "id": "bonne_nuit",
+    "name": "Bonne nuit",
+    "icon": "moon",
+    "actions": [
+      {
+        "type": "device",
+        "device": "prise_tv",
+        "action": "off"
+      },
+      {
+        "type": "device",
+        "device": "ampoule_cuisine",
+        "action": "off"
+      },
+      {
+        "type": "device",
+        "device": "ampoule_salon",
+        "action": "brightness",
+        "params": {
+          "value": 5
+        }
+      },
+      {
+        "type": "delay",
+        "seconds": 60
+      },
+      {
+        "type": "device",
+        "device": "ampoule_salon",
+        "action": "off"
+      }
+    ]
+  },
+  {
+    "id": "travail",
+    "name": "Travail",
+    "icon": "monitor",
+    "actions": [
+      {
+        "type": "device",
+        "device": "pc_bureau",
+        "action": "wake"
+      },
+      {
+        "type": "device",
+        "device": "prise_bureau2",
+        "action": "on"
+      },
+      {
+        "type": "device",
+        "device": "prise_bureau3",
+        "action": "on"
+      }
+    ]
+  }
+]

@@ -1,0 +1,126 @@
+[
+  {
+    "id": "coucher_soleil",
+    "name": "Lumière au coucher du soleil",
+    "enabled": false,
+    "triggers": [
+      {
+        "type": "sun",
+        "event": "sunset",
+        "offset": -15
+      }
+    ],
+    "conditions": [
+      {
+        "type": "presence",
+        "is": "home"
+      }
+    ],
+    "actions": [
+      {
+        "type": "device",
+        "device": "ampoule_salon",
+        "action": "on"
+      },
+      {
+        "type": "device",
+        "device": "ampoule_salon",
+        "action": "brightness",
+        "params": {
+          "value": 60
+        }
+      }
+    ]
+  },
+  {
+    "id": "clim_conso",
+    "name": "Clim : forte consommation prolongée",
+    "enabled": false,
+    "triggers": [
+      {
+        "type": "power",
+        "device": "clim_salon",
+        "op": "above",
+        "watts": 1200,
+        "for_min": 30
+      }
+    ],
+    "conditions": [],
+    "actions": [
+      {
+        "type": "notify",
+        "title": "Climatisation",
+        "message": "La clim consomme plus de 1200 W depuis 30 minutes."
+      }
+    ]
+  },
+  {
+    "id": "impression_finie",
+    "name": "Impression 3D terminée",
+    "enabled": true,
+    "triggers": [
+      {
+        "type": "state",
+        "device": "imprimante_3d",
+        "to": "off"
+      }
+    ],
+    "conditions": [],
+    "actions": [
+      {
+        "type": "notify",
+        "title": "Imprimante 3D",
+        "message": "L'impression est terminée (ou arrêtée)."
+      }
+    ]
+  },
+  {
+    "id": "depart",
+    "name": "Tout le monde est parti",
+    "enabled": false,
+    "triggers": [
+      {
+        "type": "presence",
+        "to": "all_away"
+      }
+    ],
+    "conditions": [],
+    "actions": [
+      {
+        "type": "scene",
+        "scene": "tout_eteindre"
+      },
+      {
+        "type": "notify",
+        "title": "Maison",
+        "message": "Plus personne : tout a été éteint. Pense à l'alarme !"
+      }
+    ]
+  },
+  {
+    "id": "pc_matin",
+    "name": "Allumer le PC en semaine à 8 h",
+    "enabled": false,
+    "triggers": [
+      {
+        "type": "time",
+        "at": "08:00",
+        "days": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    "conditions": [],
+    "actions": [
+      {
+        "type": "device",
+        "device": "pc_bureau",
+        "action": "wake"
+      }
+    ]
+  }
+]

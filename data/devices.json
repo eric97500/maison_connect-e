@@ -1,0 +1,134 @@
+[
+  {
+    "id": "climatisation",
+    "type": "tado",
+    "name": "Climatisation",
+    "home_id": 1491296,
+    "zone_id": 7,
+    "zone_type": "AIR_CONDITIONING",
+    "floor": "etage1",
+    "room": "Séjour"
+  },
+  {
+    "id": "climatisation_2",
+    "type": "tado",
+    "name": "Climatisation",
+    "home_id": 1491296,
+    "zone_id": 8,
+    "zone_type": "AIR_CONDITIONING",
+    "floor": "etage1",
+    "room": "Séjour"
+  },
+  {
+    "id": "tp11_prise_escalier",
+    "type": "tapo_plug",
+    "name": "TP11_Prise_escalier",
+    "host": "192.168.10.160",
+    "floor": "etage1",
+    "room": "Séjour"
+  },
+  {
+    "id": "tp11_bureau_xavier",
+    "type": "tapo_plug",
+    "name": "TP11_Bureau_Xavier",
+    "host": "192.168.10.17",
+    "floor": "etage1",
+    "room": "Séjour"
+  },
+  {
+    "id": "tp11_meuble_tv",
+    "type": "tapo_plug",
+    "name": "TP11_Meuble_TV",
+    "host": "192.168.10.24",
+    "floor": "etage1",
+    "room": "Séjour"
+  },
+  {
+    "id": "tp11_bureau_eric",
+    "type": "tapo_plug",
+    "name": "TP11_Bureau_Eric",
+    "host": "192.168.10.44",
+    "floor": "etage1",
+    "room": "Séjour"
+  },
+  {
+    "id": "nas_terramaster",
+    "name": "NAS TerraMaster",
+    "type": "terramaster",
+    "host": "192.168.10.102",
+    "ssh_port": 9222,
+    "web_port": 5443,
+    "mac": "6C:BF:B5:04:76:56",
+    "floor": "etage1",
+    "room": "Séjour"
+  },
+  {
+    "id": "ampoule_cuisine",
+    "type": "tapo_bulb",
+    "name": "Ampoule cuisine",
+    "host": "192.168.10.207",
+    "floor": "etage1",
+    "room": "Séjour"
+  },
+  {
+    "id": "nas_qnap",
+    "name": "NAS QNAP",
+    "type": "qnap",
+    "host": "192.168.10.101",
+    "port": 443,
+    "https": true,
+    "mac": "24:5E:BE:1F:98:50",
+    "floor": "etage1",
+    "room": "Séjour"
+  },
+  {
+    "id": "tapo_porte",
+    "type": "tapo_bulb",
+    "name": "Tapo Porte",
+    "host": "192.168.10.198",
+    "floor": "etage1",
+    "room": "Séjour"
+  },
+  {
+    "id": "ampoule_pc",
+    "type": "tapo_bulb",
+    "name": "Ampoule pc",
+    "host": "192.168.10.129",
+    "floor": "etage1",
+    "room": "Séjour"
+  },
+  {
+    "id": "tapo_smart_bulb",
+    "type": "tapo_bulb",
+    "name": "Tapo smart bulb",
+    "host": "192.168.10.219",
+    "floor": "etage1",
+    "room": "Séjour"
+  },
+  {
+    "id": "switch_baie",
+    "name": "Switch TL-SG1016DE",
+    "type": "tplink_switch",
+    "host": "192.168.10.99",
+    "floor": "etage1",
+    "room": "Séjour"
+  },
+  {
+    "id": "box_sfr",
+    "name": "Box SFR",
+    "type": "sfr_box",
+    "host": "192.168.10.1",
+    "floor": "etage1",
+    "room": "Séjour"
+  },
+  {
+    "id": "zotac_docker",
+    "name": "Serveur zotac-docker",
+    "type": "linux",
+    "host": "192.168.10.105",
+    "ssh_port": 22,
+    "mac": "00:01:2E:70:36:87",
+    "floor": "etage1",
+    "room": "Séjour"
+  }
+]

@@ -1,0 +1,14 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pyyaml>=6.0
+python-dotenv>=1.0
+httpx>=0.27
+websockets>=12.0
+python-kasa>=0.7.0
+vsure>=2.6
+qnapstats>=0.5
+proxmoxer>=2.0
+requests>=2.31
+paramiko>=3.4
+pyhOn>=0.17
+brother>=4.0

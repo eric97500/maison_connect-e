@@ -1,0 +1,18 @@
+services:
+  maison:
+    build:
+      context: .
+      network: host   # téléchargements de la construction via le réseau du serveur (évite les blocages IPv6 de Docker)
+    container_name: maison-connectee
+    restart: unless-stopped
+    # Réseau de l'hôte obligatoire : recherche Tapo / imprimante (broadcast) et Wake on LAN
+    network_mode: host
+    volumes:
+      - ./data:/app/data
+      - ./config.yaml:/app/config.yaml
+      - ./.env:/app/.env
+      # code monté directement : une mise à jour = copie des fichiers + redémarrage (pas de reconstruction)
+      - ./app:/app/app:ro
+      - ./web:/app/web:ro
+    environment:
+      - TZ=Europe/Paris

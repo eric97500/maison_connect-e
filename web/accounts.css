@@ -1,0 +1,91 @@
+/* Comptes connectés */
+.acc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.acc { border: 1px solid var(--border); border-radius: 16px; padding: 16px; background: var(--surface-2); display: flex; flex-direction: column; }
+.acc.ok { border-color: color-mix(in srgb, var(--on) 45%, var(--border)); }
+.acc-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.acc-head > div { flex: 1; min-width: 0; }
+.acc-head b { display: block; font-size: 15px; }
+.acc-head small { color: var(--muted); font-size: 12.5px; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.acc-logo { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; flex: none; color: #fff;
+  font-weight: 800; font-size: 13px; letter-spacing: -.02em; }
+.acc-logo.tado { background: #ff7a00; }
+.acc-logo.tapo { background: #1aa5a0; font-size: 12px; }
+.acc-logo.verisure { background: #e4002b; font-size: 18px; }
+.acc p { margin: 0 0 12px; line-height: 1.5; }
+.acc .inline-form { margin-top: auto; padding-top: 4px; }
+.tado-login { text-align: center; }
+.tado-login p { text-align: left; }
+.user-code { font-size: 30px; font-weight: 800; letter-spacing: .25em; padding: 12px; margin: 4px 0 14px; border-radius: 12px;
+  background: var(--surface); border: 1px dashed var(--border); font-variant-numeric: tabular-nums; }
+.btn.full { width: 100%; }
+.waiting { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px !important; }
+.spinner { display: inline-block; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--border); border-top-color: var(--accent);
+  animation: spin .8s linear infinite; vertical-align: -2px; margin-right: 6px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.found-list { display: flex; flex-direction: column; gap: 6px; margin: 12px 0 10px; }
+.found { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); }
+.found-txt { flex: 1; min-width: 0; }
+.found-txt b { display: block; font-size: 13.5px; }
+.found-txt small { color: var(--muted); font-size: 12px; }
+#tapo-results, #tado-results { margin-top: 6px; }
+
+/* Thermostat tado° */
+.thermostat { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border-radius: 16px;
+  background: var(--surface-2); border: 1px solid var(--border); margin-bottom: 14px; text-align: center; }
+.thermostat small { display: block; color: var(--muted); font-size: 12px; }
+.thermostat b { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.big-btn { width: 48px; height: 48px; border-radius: 14px; color: var(--text); }
+.big-btn svg { width: 22px; height: 22px; }
+.mode-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 14px; }
+.mode-row .btn { flex-direction: column; gap: 4px; padding: 9px 4px; font-size: 11.5px; }
+
+@media (max-width: 1200px) { .acc-grid { grid-template-columns: 1fr; } }
+[hidden] { display: none !important; }
+
+/* Mise en service */
+.setup { margin-bottom: 16px; border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
+.setup .bar { margin: 0 0 14px; }
+.setup-steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 8px; }
+.setup-step { display: flex; align-items: center; gap: 10px; text-align: left; font: inherit; font-size: 13.5px; padding: 10px 12px; border-radius: 12px;
+  border: 1px solid var(--border); background: var(--surface-2); color: var(--text); cursor: pointer; }
+.setup-step:hover { border-color: var(--accent); }
+.setup-step .check { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; flex: none; font-size: 12px; font-weight: 700;
+  background: var(--surface-3); color: var(--muted); }
+.setup-step.ok { color: var(--muted); }
+.setup-step.ok .check { background: var(--on); color: #fff; }
+
+/* Système */
+.sys-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.sys-item { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 14px; border-radius: 14px;
+  background: var(--surface-2); border: 1px solid var(--border); }
+.sys-item.col { flex-direction: column; align-items: stretch; }
+.sys-item b { display: block; font-size: 14px; }
+.sys-item small { color: var(--muted); font-size: 12.5px; line-height: 1.45; display: block; margin-top: 2px; }
+.backup-list { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; font-size: 13px; }
+.logs { margin-top: 12px; }
+.logs pre { max-height: 320px; overflow: auto; font-size: 11.5px; line-height: 1.5; padding: 12px; border-radius: 12px;
+  background: var(--surface-2); border: 1px solid var(--border); white-space: pre-wrap; word-break: break-word; }
+.small-select { padding: 6px 8px; font-size: 12.5px; max-width: 210px; }
+.found { flex-wrap: wrap; }
+@media (max-width: 1200px) { .sys-grid { grid-template-columns: 1fr; } }
+
+.acc.others { margin-top: 14px; }
+.acc-logo.misc { background: var(--violet); }
+.acc-logo.misc svg { width: 20px; height: 20px; }
+.others-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.others-grid > div > b { display: inline-block; margin-bottom: 8px; }
+@media (max-width: 1200px) { .others-grid { grid-template-columns: 1fr; } }
+
+.demo-box { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border-radius: 12px; margin-bottom: 14px; font-size: 13px;
+  background: color-mix(in srgb, var(--warn) 14%, transparent); border: 1px solid color-mix(in srgb, var(--warn) 40%, transparent); color: var(--text); }
+.demo-box svg { width: 18px; height: 18px; color: var(--warn); flex: none; margin-top: 1px; }
+.demo-box a { color: var(--warn); font-weight: 600; }
+
+.cred-box { border: 1px solid var(--border); background: var(--surface-2); border-radius: 14px; padding: 14px; margin: 6px 0 14px; display: flex; flex-direction: column; gap: 8px; }
+.cred-box > b { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.cred-box > b svg { width: 16px; height: 16px; color: var(--accent); }
+.cred-box .field-label { margin-bottom: 4px; }
+.cred-box .btn { align-self: flex-start; }
+.ok-box { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 12px; font-size: 13px;
+  background: color-mix(in srgb, var(--on) 14%, transparent); border: 1px solid color-mix(in srgb, var(--on) 40%, transparent); }
+.ok-box svg { width: 16px; height: 16px; color: var(--on); flex: none; }

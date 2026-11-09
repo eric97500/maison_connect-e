@@ -1,0 +1,139 @@
+{
+  "racks": {
+    "Baie de brassage": {
+      "units": 12,
+      "items": [
+        {
+          "id": "fd15d6b1d6",
+          "name": "Box Orange",
+          "type": "router",
+          "u": 12,
+          "h": 1,
+          "device": null,
+          "ports": null,
+          "model": "Livebox",
+          "port_map": {},
+          "side": "left",
+          "notes": ""
+        },
+        {
+          "id": "c3ea58e185",
+          "name": "Box SFR",
+          "type": "router",
+          "u": 12,
+          "h": 1,
+          "device": "box_sfr",
+          "ports": null,
+          "model": "Box SFR",
+          "port_map": {},
+          "side": "right",
+          "notes": ""
+        },
+        {
+          "id": "f5da25a08e",
+          "name": "TP-Link TL-SG1016DE",
+          "type": "switch",
+          "u": 11,
+          "h": 1,
+          "device": "switch_baie",
+          "ports": 16,
+          "model": "TL-SG1016DE",
+          "port_map": {},
+          "side": null,
+          "notes": ""
+        },
+        {
+          "id": "0292257004",
+          "name": "QNAP",
+          "type": "nas",
+          "u": 9,
+          "h": 2,
+          "device": "nas_qnap",
+          "ports": null,
+          "model": null,
+          "port_map": {},
+          "side": null,
+          "notes": ""
+        },
+        {
+          "id": "3ca5bfd95b",
+          "name": "TERRAMASTER",
+          "type": "nas",
+          "u": 7,
+          "h": 2,
+          "device": "nas_terramaster",
+          "ports": null,
+          "model": null,
+          "port_map": {},
+          "side": null,
+          "notes": ""
+        },
+        {
+          "id": "fee8f6c8dc",
+          "name": "VERISURE",
+          "type": "router",
+          "u": 4,
+          "h": 1,
+          "device": null,
+          "ports": null,
+          "model": null,
+          "port_map": {},
+          "side": "left",
+          "notes": ""
+        },
+        {
+          "id": "47464c16df",
+          "name": "SRV-02",
+          "type": "server",
+          "u": 4,
+          "h": 1,
+          "device": null,
+          "ports": null,
+          "model": null,
+          "port_map": {},
+          "side": "right",
+          "notes": ""
+        },
+        {
+          "id": "c461c30f43",
+          "name": "SRV-01",
+          "type": "server",
+          "u": 3,
+          "h": 1,
+          "device": null,
+          "ports": null,
+          "model": null,
+          "port_map": {},
+          "side": null,
+          "notes": ""
+        },
+        {
+          "id": "da6ed89c78",
+          "name": "SRV-03",
+          "type": "server",
+          "u": 2,
+          "h": 1,
+          "device": null,
+          "ports": null,
+          "model": null,
+          "port_map": {},
+          "side": null,
+          "notes": ""
+        },
+        {
+          "id": "e6150448f1",
+          "name": "Onduleur",
+          "type": "ups",
+          "u": 1,
+          "h": 1,
+          "device": null,
+          "ports": null,
+          "model": null,
+          "port_map": {},
+          "side": null,
+          "notes": ""
+        }
+      ]
+    }
+  }
+}

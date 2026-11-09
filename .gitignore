@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.env
+data/*.db
+data/*.tmp
+data/verisure.cookie
+
+# Secrets et données personnelles
+data/tado_token.json
+data/settings.json
+data/backups/
+data/logs/
+*.log

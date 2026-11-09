@@ -1,0 +1,136 @@
+{
+  "floors": [
+    {
+      "id": "etage1",
+      "name": "1er étage",
+      "width": 900,
+      "height": 970,
+      "background": null,
+      "rooms": [
+        {
+          "name": "Séjour",
+          "x": 20,
+          "y": 304,
+          "w": 857,
+          "h": 645,
+          "floor": "wood",
+          "wall": "outer",
+          "label": [
+            560,
+            560
+          ]
+        },
+        {
+          "name": "Cuisine",
+          "x": 687,
+          "y": 20,
+          "w": 188,
+          "h": 284,
+          "floor": "tile",
+          "wall": "outer"
+        },
+        {
+          "name": "Toilettes",
+          "x": 20,
+          "y": 452,
+          "w": 156,
+          "h": 227,
+          "floor": "tile",
+          "wall": "inner"
+        },
+        {
+          "name": "Escalier",
+          "stairs": {
+            "cx": 20,
+            "cy": 949,
+            "rx": 285,
+            "ry": 205,
+            "core": 0.3,
+            "steps": 14,
+            "to": "etage2"
+          }
+        }
+      ],
+      "furniture": [
+        {
+          "name": "Congélateur",
+          "kind": "appliance",
+          "x": 210,
+          "y": 312,
+          "w": 86,
+          "h": 74
+        },
+        {
+          "name": "Climatisation",
+          "kind": "ac",
+          "x": 398,
+          "y": 312,
+          "w": 130,
+          "h": 20
+        },
+        {
+          "name": "TV",
+          "kind": "tv",
+          "x": 322,
+          "y": 368,
+          "w": 222,
+          "h": 44
+        },
+        {
+          "name": "Frigo",
+          "kind": "appliance",
+          "x": 560,
+          "y": 312,
+          "w": 78,
+          "h": 66
+        },
+        {
+          "name": "Bureau 1",
+          "kind": "desk",
+          "x": 818,
+          "y": 380,
+          "w": 52,
+          "h": 136
+        },
+        {
+          "name": "Bureau 2",
+          "kind": "desk",
+          "x": 818,
+          "y": 580,
+          "w": 52,
+          "h": 136
+        },
+        {
+          "name": "Baie de brassage",
+          "kind": "it",
+          "x": 818,
+          "y": 726,
+          "w": 52,
+          "h": 48
+        },
+        {
+          "name": "Bureau 3",
+          "kind": "desk",
+          "x": 818,
+          "y": 784,
+          "w": 52,
+          "h": 136
+        }
+      ],
+      "windows": [
+        {
+          "x1": 877,
+          "y1": 390,
+          "x2": 877,
+          "y2": 548
+        },
+        {
+          "x1": 877,
+          "y1": 770,
+          "x2": 877,
+          "y2": 922
+        }
+      ]
+    }
+  ]
+}

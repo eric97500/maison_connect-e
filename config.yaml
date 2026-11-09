@@ -1,0 +1,84 @@
+# ============================================================
+#  Maison connectée — configuration
+#  Les valeurs ${VARIABLE} sont lues dans le fichier .env
+# ============================================================
+
+# demo: true  -> données simulées, aucun appareil réel n'est contacté.
+# Passe à false quand les adresses IP ci-dessous sont correctes.
+demo: true
+
+server:
+  host: 0.0.0.0
+  port: 8123
+
+archive:
+  interval_seconds: 60        # fréquence d'enregistrement de la puissance des prises
+  raw_retention_days: 365     # mesures minute par minute conservées 1 an
+                              # (les totaux journaliers sont gardés pour toujours)
+  price_per_kwh: 0.2516       # € / kWh, pour l'estimation du coût
+
+status_interval_seconds: 15   # rafraîchissement de l'état des appareils
+
+credentials:
+  tapo:     { username: "${TAPO_EMAIL}",     password: "${TAPO_PASSWORD}" }
+  verisure: { username: "${VERISURE_EMAIL}", password: "${VERISURE_PASSWORD}" }
+  camera:   { username: "${CAMERA_USER}",    password: "${CAMERA_PASSWORD}" }
+  qnap:     { username: "${QNAP_USER}",      password: "${QNAP_PASSWORD}" }
+  terramaster: { username: "${TERRAMASTER_USER}", password: "${TERRAMASTER_PASSWORD}" }   # SSH (TOS)
+  linux:    { username: "${LINUX_USER}",     password: "${LINUX_PASSWORD}" }              # SSH serveurs Linux
+  switch:   { username: "${SWITCH_USER}",    password: "${SWITCH_PASSWORD}" }             # switch TP-Link Easy Smart
+  sfr:      { username: "${SFR_USER}",       password: "${SFR_PASSWORD}" }                # box SFR (interface mabox)
+  livebox:  { username: "${LIVEBOX_USER}",   password: "${LIVEBOX_PASSWORD}" }            # Orange Livebox
+  proxmox:
+    user: "${PROXMOX_USER}"
+    token_name: "${PROXMOX_TOKEN_NAME}"
+    token_value: "${PROXMOX_TOKEN_VALUE}"
+
+# ------------------------------------------------------------
+#  Appareils. "room" doit correspondre à une pièce de data/floors.json
+#  (sert au placement initial ; tu peux ensuite déplacer l'icône sur le plan).
+# ------------------------------------------------------------
+devices:
+  # --- Prises Tapo (P110/P115 = mesure de puissance, archivée) ---
+  # Emplacements = les flèches du plan
+  - { id: prise_tv,        name: "Prise TV",        type: tapo_plug, host: 192.168.1.50, floor: etage1, room: Séjour }
+  - { id: prise_bureau2,   name: "Prise bureau 2",  type: tapo_plug, host: 192.168.1.51, floor: etage1, room: Séjour }
+  - { id: prise_bureau3,   name: "Prise bureau 3",  type: tapo_plug, host: 192.168.1.52, floor: etage1, room: Séjour }
+  - { id: prise_escalier,  name: "Prise escalier",  type: tapo_plug, host: 192.168.1.53, floor: etage1, room: Escalier }
+
+  # --- Ampoules Tapo ---
+  - { id: ampoule_salon,  name: "Ampoule séjour",      type: tapo_bulb,  host: 192.168.1.60, floor: etage1, room: Séjour }
+  - { id: ampoule_cuisine, name: "Ampoule cuisine",    type: tapo_bulb,  host: 192.168.1.61, floor: etage1, room: Cuisine }
+
+  # --- Climatisation Tapo (au-dessus de la TV, branchée sur une prise Tapo à mesure) ---
+  - { id: clim_salon,     name: "Climatisation",       type: tapo_clim,  host: 192.168.1.55, floor: etage1, room: Séjour }
+
+  # --- Alarme Verisure ---
+  - { id: alarme,         name: "Alarme Verisure",     type: verisure,   floor: etage1, room: Escalier }
+
+  # --- Wake on LAN ---
+  - { id: pc_bureau,      name: "PC bureau",           type: wol, host: 192.168.1.20, mac: "AA:BB:CC:DD:EE:FF", floor: etage1, room: Séjour }
+
+  # --- Caméras Avidsen (snapshot_url OU rtsp_url) ---
+  - id: camera_entree
+    name: "Caméra entrée"
+    type: camera
+    host: 192.168.1.70
+    rtsp_url: "rtsp://${CAMERA_USER}:${CAMERA_PASSWORD}@192.168.1.70:554/live/ch0"
+    # snapshot_url: "http://192.168.1.70/snapshot.jpg"
+    floor: etage1
+    room: Escalier
+
+  # --- Meuble informatique (entre bureau 2 et 3) ---
+  - { id: nas_qnap,       name: "NAS QNAP",            type: qnap,       host: 192.168.1.30, port: 8080, floor: etage1, room: Séjour }
+  - { id: nas_terramaster, name: "NAS TerraMaster",    type: terramaster, host: 192.168.1.31, web_port: 5443, mac: "", floor: etage1, room: Séjour }
+
+  # --- Proxmox ---
+  - { id: proxmox,        name: "Serveur Proxmox",     type: proxmox,    host: 192.168.1.40, port: 8006, floor: etage1, room: Séjour }
+
+  # --- Présence (téléphone sur le Wi-Fi : mets une IP fixe au téléphone dans la box) ---
+  - { id: telephone,      name: "Mon téléphone",       type: presence, host: 192.168.1.90, away_after_min: 10, floor: etage1, room: Séjour }
+
+  # --- Imprimante 3D Elegoo ---
+  # protocol: sdcp (Centauri Carbon, Saturn, Mars...) ou moonraker (Neptune 4 / Klipper)
+  - { id: imprimante_3d,  name: "Imprimante Elegoo",   type: elegoo, host: 192.168.1.80, protocol: sdcp, floor: etage1, room: Séjour }

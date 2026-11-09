@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f17">
+  <title>Maison connectée</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Maison">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="features.css">
+  <link rel="stylesheet" href="accounts.css">
+  <link rel="stylesheet" href="servers.css">
+  <link rel="stylesheet" href="rack.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></div>
+        <div class="brand-text"><b>Maison</b><span>connectée</span></div>
+      </div>
+      <nav class="nav">
+        <button data-view="home" class="active"><svg viewBox="0 0 24 24"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"/></svg><span data-s="Accueil">Tableau de bord</span></button>
+        <button data-view="energy"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg><span data-s="Énergie">Énergie</span></button>
+        <button data-view="devices"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span data-s="Appareils">Appareils</span></button>
+        <button data-view="servers"><svg viewBox="0 0 24 24"><path d="M5 3h14v18H5zM9 7h6M9 11h6M12 17h.01"/></svg><span data-s="Serveurs">Serveurs</span></button>
+        <button data-view="automations"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg><span data-s="Autos">Automatisations</span></button>
+        <button data-view="scenes"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg><span data-s="Scènes">Scènes</span></button>
+        <button data-view="logbook"><svg viewBox="0 0 24 24"><path d="M12 7v5l3 3M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></svg><span data-s="Journal">Journal</span></button>
+        <button data-view="settings"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span data-s="Réglages">Paramètres</span></button>
+      </nav>
+      <div class="sidebar-foot">
+        <span id="demo-badge" class="pill warn" hidden>Mode démo</span>
+        <button id="theme-btn" class="icon-btn" title="Changer de thème" aria-label="Changer de thème">
+          <svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div>
+          <h1 id="greeting">Bonjour</h1>
+          <p class="muted" id="clock"></p>
+        </div>
+        <div class="kpis">
+          <div class="kpi" id="kpi-power"><span class="kpi-ico amber"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><div><small>Maintenant</small><b>—</b></div></div>
+          <div class="kpi" id="kpi-today"><span class="kpi-ico blue"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></span><div><small>Aujourd'hui</small><b>—</b></div></div>
+          <div class="kpi" id="kpi-alarm"><span class="kpi-ico green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><small>Alarme</small><b>—</b></div></div>
+          <div class="kpi" id="kpi-online"><span class="kpi-ico violet"><svg viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01M1.5 9a15 15 0 0 1 21 0"/></svg></span><div><small>En ligne</small><b>—</b></div></div>
+          <div class="bell-wrap">
+            <button class="kpi bell" id="bell" aria-label="Notifications"><span class="kpi-ico blue"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><span class="badge" id="bell-badge" hidden></span></button>
+            <div class="notif-panel" id="notif-panel" hidden>
+              <div class="card-head"><h2>Notifications</h2><button class="btn ghost small-btn" id="notif-read">Tout marquer lu</button></div>
+              <div id="notif-list"></div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Tableau de bord -->
+      <section id="view-home" class="view active">
+        <div id="setup-card"></div>
+        <div class="scene-bar" id="scene-bar"></div>
+        <div class="home-grid">
+          <div class="card plan-card">
+            <div class="card-head">
+              <div class="seg" id="floor-tabs"></div>
+              <label class="switch-label"><span>Déplacer</span><span class="switch"><input type="checkbox" id="edit-mode"><i></i></span></label>
+            </div>
+            <div class="plan-wrap">
+              <svg id="plan" xmlns="http://www.w3.org/2000/svg"></svg>
+            </div>
+            <div class="plan-legend">
+              <span><i class="lg on"></i>Allumé</span>
+              <span><i class="lg off"></i>Éteint</span>
+              <span><i class="lg err"></i>Erreur</span>
+              <span class="muted">Clic sur une ampoule : allumer / éteindre (appui long : réglages) · clic sur un appareil : sa fiche · escalier : changer d'étage</span>
+            </div>
+            <p class="hint" id="edit-hint" hidden>Glisse les appareils à leur place — la position est enregistrée automatiquement.</p>
+          </div>
+
+          <div class="side-col">
+            <div class="card weather-card" id="weather-card"></div>
+            <div class="card">
+              <div class="card-head"><h2>Prises &amp; lumières</h2><span class="muted small" id="quick-total"></span></div>
+              <div id="quick-controls" class="quick-list"></div>
+            </div>
+            <div class="card">
+              <div class="card-head"><h2>Meuble informatique</h2></div>
+              <div id="it-list" class="it-list"></div>
+            </div>
+            <div class="card" id="printer-card" hidden></div>
+            <div class="card cam-card" id="cam-card" hidden></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Énergie -->
+      <section id="view-energy" class="view">
+        <div class="energy-kpis" id="energy-kpis"></div>
+        <div class="card">
+          <div class="card-head">
+            <h2>Puissance</h2>
+            <div class="head-actions">
+              <div class="seg" id="range-tabs">
+                <button data-range="6h">6 h</button>
+                <button data-range="24h" class="active">24 h</button>
+                <button data-range="7d">7 j</button>
+                <button data-range="30d">30 j</button>
+                <button data-range="365d">1 an</button>
+              </div>
+              <a id="csv-link" class="btn ghost" href="/api/power/export.csv?range=24h">
+                <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg>CSV</a>
+            </div>
+          </div>
+          <div id="legend" class="legend"></div>
+          <div id="power-chart" class="chart"></div>
+        </div>
+        <div class="energy-grid">
+          <div class="card">
+            <div class="card-head"><h2>Consommation par jour</h2><span class="muted small">30 derniers jours · kWh</span></div>
+            <div id="daily-chart" class="chart"></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h2>Répartition</h2><span class="muted small">30 jours</span></div>
+            <div id="share"></div>
+          </div>
+        </div>
+        <div class="card" id="hphc-card" hidden></div>
+        <div class="card">
+          <div class="card-head"><h2>Détail par prise</h2></div>
+          <div id="energy-table" class="table-wrap"></div>
+        </div>
+      </section>
+
+      <!-- Appareils -->
+      <section id="view-devices" class="view">
+        <div id="device-groups"></div>
+      </section>
+
+      <!-- Serveurs -->
+      <section id="view-servers" class="view">
+        <div class="page-head">
+          <div><h2 class="page-title">Serveurs</h2><p class="muted">NAS, Proxmox et serveurs Linux : processeur, mémoire, températures, disques, RAID et réseau.</p></div>
+          <div class="seg" id="srv-range">
+            <button data-range="6h">6 h</button><button data-range="24h" class="active">24 h</button>
+            <button data-range="7d">7 j</button><button data-range="30d">30 j</button></div>
+        </div>
+        <div id="server-list" class="server-list"></div>
+      </section>
+
+      <!-- Automatisations -->
+      <section id="view-automations" class="view">
+        <div class="page-head">
+          <div><h2 class="page-title">Automatisations</h2><p class="muted">Quand quelque chose se passe, si les conditions sont remplies, alors la maison agit.</p></div>
+          <button class="btn primary" id="new-automation"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Nouvelle automatisation</button>
+        </div>
+        <div id="automation-list" class="auto-list"></div>
+      </section>
+
+      <!-- Scènes -->
+      <section id="view-scenes" class="view">
+        <div class="page-head">
+          <div><h2 class="page-title">Scènes</h2><p class="muted">Plusieurs actions d'un seul geste.</p></div>
+          <button class="btn primary" id="new-scene"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Nouvelle scène</button>
+        </div>
+        <div id="scene-grid" class="scene-grid"></div>
+      </section>
+
+      <!-- Journal -->
+      <section id="view-logbook" class="view">
+        <div class="page-head">
+          <div><h2 class="page-title">Journal</h2><p class="muted">Tout ce qui s'est passé dans la maison.</p></div>
+          <div class="head-actions">
+            <div class="seg" id="log-kinds">
+              <button data-kind="" class="active">Tout</button>
+              <button data-kind="state">États</button>
+              <button data-kind="action">Actions</button>
+              <button data-kind="automation">Automatisations</button>
+              <button data-kind="notification">Notifications</button>
+            </div>
+            <select id="log-device" class="select"></select>
+          </div>
+        </div>
+        <div class="card"><div id="log-list" class="log-list"></div>
+          <div class="center"><button class="btn ghost" id="log-more" hidden>Voir plus</button></div></div>
+      </section>
+
+      <!-- Paramètres -->
+      <section id="view-settings" class="view">
+        <div class="page-head"><div><h2 class="page-title">Paramètres</h2><p class="muted">Appareils, localisation et notifications.</p></div></div>
+        <div id="settings-body"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="drawer-backdrop" class="backdrop" hidden></div>
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <button class="icon-btn drawer-close" id="drawer-close" aria-label="Fermer"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div id="drawer-body"></div>
+  </aside>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-head"><h2 id="modal-title"></h2>
+        <button class="icon-btn" id="modal-close" aria-label="Fermer"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-foot" id="modal-foot"></div>
+    </div>
+  </div>
+
+  <div id="tooltip" class="tooltip" hidden></div>
+  <div id="toast" class="toast" hidden></div>
+  <script src="app.js"></script>
+  <script src="automations.js"></script>
+  <script src="logbook.js"></script>
+  <script src="settings.js"></script>
+  <script src="accounts.js"></script>
+  <script src="system.js"></script>
+  <script src="servers.js"></script>
+  <script src="rack.js"></script>
+</body>
+</html>

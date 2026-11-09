@@ -1,0 +1,72 @@
+{
+  "climatisation": {
+    "floor": "etage1",
+    "x": 455,
+    "y": 328
+  },
+  "climatisation_2": {
+    "floor": "etage1",
+    "x": 112,
+    "y": 881
+  },
+  "tp11_bureau_xavier": {
+    "floor": "etage1",
+    "x": 853,
+    "y": 926
+  },
+  "tp11_bureau_eric": {
+    "floor": "etage1",
+    "x": 846,
+    "y": 544
+  },
+  "tp11_prise_escalier": {
+    "floor": "etage1",
+    "x": 330,
+    "y": 923
+  },
+  "tp11_meuble_tv": {
+    "floor": "etage1",
+    "x": 368,
+    "y": 331
+  },
+  "ampoule_cuisine": {
+    "floor": "etage1",
+    "x": 780,
+    "y": 163
+  },
+  "nas_terramaster": {
+    "floor": "etage1",
+    "x": 582,
+    "y": 921
+  },
+  "tapo_porte": {
+    "floor": "etage1",
+    "x": 108,
+    "y": 372
+  },
+  "nas_qnap": {
+    "floor": "etage1",
+    "x": 640,
+    "y": 922
+  },
+  "ampoule_pc": {
+    "floor": "etage1",
+    "x": 636,
+    "y": 539
+  },
+  "tapo_smart_bulb": {
+    "floor": "etage1",
+    "x": 399,
+    "y": 546
+  },
+  "switch_baie": {
+    "floor": "etage1",
+    "x": 638,
+    "y": 869
+  },
+  "box_sfr": {
+    "floor": "etage1",
+    "x": 579,
+    "y": 867
+  }
+}
