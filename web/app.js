@@ -294,7 +294,9 @@ function devicePos(d, floor, idx) {
   const p = S.layout[d.id];
   if (p && p.floor === floor.id) return [p.x, p.y];
   const [cx, cy] = roomCenter(floor, d.room);
-  return [cx + Math.cos(idx * 2.4) * 50 * Math.sqrt(idx), cy + Math.sin(idx * 2.4) * 50 * Math.sqrt(idx)];
+  const clamp = (v, max) => Math.min(Math.max(v, 30), max - 30);  // toujours visible sur le plan
+  return [clamp(cx + Math.cos(idx * 2.4) * 50 * Math.sqrt(idx), floor.width),
+          clamp(cy + Math.sin(idx * 2.4) * 50 * Math.sqrt(idx), floor.height)];
 }
 
 function planDefs(defs) {
