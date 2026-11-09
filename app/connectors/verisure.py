@@ -38,8 +38,14 @@ class VerisureConnector(Connector):
             s =verisure.Session(c.get("username", ""), c.get("password", ""), cookie_file_name=str(COOKIE_FILE))
             # Le cookie "de confiance" (créé par verisure_mfa.py) évite la double authentification.
             installations = s.login_cookie() if COOKIE_FILE.exists() else s.login()
-            inst = installations["data"]["account"]["installations"]
-            s.set_giid(self.dev.get("giid") or inst[0]["giid"])
+            inst = ((installations.get("data") or {}).get("account") or {}).get("installations") or []
+            giid = self.dev.get("giid") or (inst[0]["giid"] if inst else None)
+            if not giid:
+                raise ValueError(
+                    "Connexion Verisure réussie, mais aucune alarme n'est liée à ce compte. "
+                    "Vérifie que l'e-mail saisi dans Réglages → Comptes est celui que tu utilises "
+                    "dans l'appli My Verisure (le propriétaire ou un utilisateur avec accès à l'appli).")
+            s.set_giid(giid)
             self._session = s
         return self._session
 
